@@ -32,13 +32,13 @@ function getDataFromServer(){
 	var url = "./getData?from=" + from +"&to=" + to;
 	var callback = function(data){
 		var obj = JSON.parse(data);
-		var columns = [["x"],["y"],["z"]]
+		var columns = [["x"],["X"]["y"],["z"]]
 		for(var i = 0; i < obj.length; i++){
 			var timestamp = parseInt(obj[i].ts || obj[i].time);
 			columns[0].push(getTSInFormat(timestamp));
 			columns[1].push(obj[i].x || 0);
 			columns[2].push(obj[i].y || 0);
-			columns[2].push(obj[i].z || 0);
+			columns[3].push(obj[i].z || 0);
 			lastAddedTS = timestamp;
 		}
 		chart = c3.generate({
