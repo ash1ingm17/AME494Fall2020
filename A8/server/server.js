@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
 const mailOptions = {
   from: 'ame494test@gmail.com',
   to: 'ame494test@gmail.com',
-  subject: 'Temperature and Humidity'
-  text: 'testing.'
+  subject: 'Temperature and Humidity',
+  text: 'The temperature is "t", and the humdity is "h".'
 };
 
 
