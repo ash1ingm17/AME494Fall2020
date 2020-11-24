@@ -37,7 +37,7 @@ app.get("/sendEmail", function (req, res) {
    transporter.sendMail({
      from: 'ame494test@gmail.com',
      to: 'ame494test@gmail.com',
-     subject: 'Temperature and Humidity'
+     subject: 'Temperature and Humidity',
      text: 'Temperature is ' + t +' and Humidity is ' + h +'.'
    }
 
