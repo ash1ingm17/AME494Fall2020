@@ -6,7 +6,7 @@ TTGOClass *ttgo;
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "MSMAMM-guest";
+const char* ssid = "MSMAMM-5-1";
 const char* password = "donegalireland";
 
 //Your Domain name with URL path or IP address with path
