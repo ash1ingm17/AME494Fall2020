@@ -28,26 +28,21 @@ app.get("/", function (req, res) {
     res.redirect("index.html")
 });
 
-app.get("/sendEmail", function (req, res) {
-   // Send Email
-   t - req.query.t;
-   h = req.query.h;
-   req.query.time = new Date().getTime();
-
-   transporter.sendMail({
-     from: 'ame494test@gmail.com',
-     to: 'ame494test@gmail.com',
-     subject: 'Temperature and Humidity',
-     text: 'Temperature is ' + t +' and Humidity is ' + h +'.'
-   }
-
-, function(error, info){
+  app.get("/sendEmail", function (req, res) {
+     // Send Email
+     var t = req.query.t
+     var h = req.query.h
+     req.query.time = new Date().getTime();
+     mailOptions.text= "temperature is "+ t + ",humidity is "+ h 
+  console.log("button pressed");
+  transporter.sendMail(mailOptions, function(error,info){
      if (error) {
    	console.log(error);
      } else {
        console.log('Email sent: ' + info.response);
      }
    });
+   res.send("1");
 });
 
 

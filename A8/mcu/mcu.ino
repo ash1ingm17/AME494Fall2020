@@ -11,7 +11,7 @@ const char* ssid = "MSMAMM";
 const char* password = "donegalireland";
 
 //Your Domain name with URL path or IP address with path
-const char* serverName = "http://34.205.65.193:1234/sendData";
+const char* serverName = "http://34.205.65.193:1234/sendEmail";
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -64,9 +64,11 @@ void pressed()
     ttgo->tft->setTextColor(color, TFT_WHITE);
     ttgo->tft->drawString("User Button pressed",  5, 100, 4);
   // read without samples.
+  
+if(WiFi.status()== WL_CONNECTED){
+  
   byte temperature = 0;
   byte humidity = 0;
-
     int err = SimpleDHTErrSuccess;
   if ((err = dht11.read(&temperature, &humidity, NULL)) != SimpleDHTErrSuccess) {
     Serial.print("Read DHT11 failed, err="); Serial.println(err); delay(1000);
@@ -81,9 +83,6 @@ void pressed()
       int h = (int)humidity;
       String url = String(serverName) + "?t=" + t + "&h=" + h;
       Serial.println(url);   
-
-  
-    if(WiFi.status()== WL_CONNECTED){
      response = httpGETRequest(url.c_str());
       Serial.println(response);
 }
