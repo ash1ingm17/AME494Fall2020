@@ -82,8 +82,10 @@ if(WiFi.status()== WL_CONNECTED){
    int t = (int)temperature;
       int h = (int)humidity;
       String url = String(serverName) + "?t=" + t + "&h=" + h;
-      Serial.println(url);   
-     response = httpGETRequest(url.c_str());
+      Serial.println(url);
+
+      //Serial.println(response);
+      response = httpGETRequest(url.c_str());
       Serial.println(response);
 }
     else {

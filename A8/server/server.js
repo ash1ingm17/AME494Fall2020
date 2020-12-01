@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const mailOptions = {
+var mailOptions = {
   from: 'ame494test@gmail.com',
   to: 'ame494test@gmail.com',
   subject: 'Temperature and Humidity',
@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
      var t = req.query.t
      var h = req.query.h
      req.query.time = new Date().getTime();
-     mailOptions.text= "temperature is "+ t + ",humidity is "+ h 
+     mailOptions.text= "temperature is "+ t + ",humidity is "+ h
   console.log("button pressed");
   transporter.sendMail(mailOptions, function(error,info){
      if (error) {
